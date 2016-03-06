@@ -8,7 +8,7 @@ class Congre(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     place = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(default="")
     created_date = models.DateTimeField(default=timezone.now)
     start_date = models.DateTimeField(blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)

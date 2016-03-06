@@ -1,0 +1,16 @@
+{% extends 'congresList/base.html' %}
+
+{% block content %}
+    {% for congre in congres %}
+        <div>
+            <h1>{{ congre.title }}</h1>
+            <p>{{ congre.description}}</p>
+
+            <ul>
+                <li>Start date : {{ congre.start_date }}</li>
+                <li>End date : {{ congre.end_date }}</li>
+            </ul>
+            <a class="btn btn-default" href="{% url 'edit_congre' pk=congre.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        </div>
+    {% endfor %}
+{% endblock %}

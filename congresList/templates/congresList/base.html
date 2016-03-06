@@ -1,0 +1,42 @@
+{% load staticfiles %} <!-- pour lui dire de charger les css ... -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+    content must come *after* these tags -->
+    <meta name="description" content="List of relevant congres about theoretical chemistry">
+    <meta name="author" content="Germain Salvato Vallverdu">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+    <title>List of relevant congres</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/congreslist.css' %}">
+  </head>
+  <body>
+    <div class="container">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <h1>List of relevent congres about theoretical chemistry</h1>
+          <p>This page gives a list of relevent congres about theoretical chemistry.</p>
+          <a href="{% url 'new_congre' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+
+        <div class="container">
+          {% block content %}
+          {% endblock %}
+        </div>
+    </div>
+  </body>
+</html>
