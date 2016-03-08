@@ -40,7 +40,7 @@ def new_congress(request):
 
 
 def edit_congress(request, congress_id):
-    congress = get_object_or_404(Congress, pk=congre_id)
+    congress = get_object_or_404(Congress, pk=congress_id)
     if request.method == "POST":
         form = CongressForm(request.POST, instance=congress)
         if form.is_valid():
@@ -50,5 +50,5 @@ def edit_congress(request, congress_id):
             congress.save()
             return redirect('congressesList.views.congresses_list')
     else:
-        form = CongressForm(instance=congre)
+        form = CongressForm(instance=congress)
     return render(request, 'congressesList/new_congress.html', {'form': form})
