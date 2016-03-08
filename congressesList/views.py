@@ -2,7 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Congress
 from .forms import CongressForm
+
+from geopy.geocoders import Nominatim
 # Create your views here.
+
+
+def get_location(place):
+    """ Return longitude and latitude of a given place """
+    # set up location of the congress
+    geolocator = Nominatim()
+    location = geolocator.geocode(place)
+    return location.longitude, location.latitude
 
 
 def congresses_list(request):
@@ -19,10 +29,10 @@ def new_congress(request):
     if request.method == "POST":
         form = CongressForm(request.POST)
         if form.is_valid():
-            congre = form.save(commit=False)
-            congre.author = request.user
-            congre.created_date = timezone.now()
-            congre.save()
+            congress = form.save(commit=False)
+            congress.created_date = timezone.now()
+            congress.longitude, congress.latitude = get_location(congress.place)
+            congress.save()
             return redirect("congressesList.views.congresses_list")
     else:
         form = CongressForm()
@@ -35,8 +45,8 @@ def edit_congress(request, congress_id):
         form = CongressForm(request.POST, instance=congress)
         if form.is_valid():
             congress = form.save(commit=False)
-            congress.author = request.user
             congress.created_date = timezone.now()
+            congress.longitude, congress.latitude = get_location(congress.place)
             congress.save()
             return redirect('congressesList.views.congresses_list')
     else:
