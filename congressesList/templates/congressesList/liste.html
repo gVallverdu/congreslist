@@ -1,0 +1,13 @@
+{% extends 'congressesList/base.html' %}
+
+{% block content %}
+    <div class="list-group">
+        {% for congress in congresses %}
+            <a href="{% url 'congress_detail' congress_id=congress.pk %}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ congress.title }}</h4>
+                <p class="list-group-item-text">{{ congress.place }}</p>
+                <p class="list-group-item-text">{{ congress.start_date }}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

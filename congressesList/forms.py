@@ -1,10 +1,10 @@
 from django import forms
 
-from .models import Congre
+from .models import Congress
 
 
-class CongreForm(forms.ModelForm):
+class CongressForm(forms.ModelForm):
 
     class Meta:
-        model = Congre
+        model = Congress
         fields = ('title', 'description', 'place')

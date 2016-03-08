@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Congre
+from .models import Congress
 # Register your models here.
 
-admin.site.register(Congre)
+admin.site.register(Congress)
