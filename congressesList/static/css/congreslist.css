@@ -1,4 +1,4 @@
-
+/*
 .header {
     margin: 0px;
     padding: 20px;
@@ -11,3 +11,9 @@
     margin-left: 10px;
     color: #3B3C3E;
 }
+*/
+
+​textarea {
+    vertical-align: top;
+}
+    ​
