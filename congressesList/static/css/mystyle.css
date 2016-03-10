@@ -13,7 +13,8 @@
 }
 */
 
-​textarea {
-    vertical-align: top;
+.mapsize {
+     width: 400px;
+     height: 300px;
+     margin: 10px;
 }
-    ​

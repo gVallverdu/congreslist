@@ -6,4 +6,5 @@ urlpatterns = [
     url(r"^new/$", views.new_congress, name="new_congress"),
     url(r'^congress/(?P<congress_id>\d+)/$', views.congress_detail, name='congress_detail'),
     url(r"^edit/(?P<congress_id>\d+)$", views.edit_congress, name="edit_congress"),
+    url(r"^delete/(?P<congress_id>\d+)$", views.delete_congress, name="delete_congress"),
 ]

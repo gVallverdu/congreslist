@@ -1,4 +1,4 @@
-{% load staticfiles %} <!-- pour lui dire de charger les css ... -->
+{% load staticfiles %} <!-- pour lui dire de charger les css, img ... -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,32 +21,32 @@
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{% static 'css/congreslist.css' %}">
-
     <!-- include openstreet maps -->
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="page-header">
             <h1>Theoretical chemistry congresses</h1>
         </div>
 
-        <p>This page gives a list of relevant congresses about theoretical chemistry.
-        </p>
+        <p>This page gives a list of relevant congresses about theoretical chemistry.</p>
 
         <p>
             <a href="{% url 'congresses_list' %}">
                 <button type="button" class="btn btn-default" aria-label="Home">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    List of congresses
+                    List
                 </button>
             </a>
             <a href="{% url 'new_congress' %}">
                 <button type="button" class="btn btn-default" aria-label="Add congress">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    Add a new congress
+                    Add
                 </button>
             </a>
         </p>
@@ -57,17 +57,13 @@
     </div>
 
     <footer class="footer">
-        <div class="container">
-            <div class="media">
-                <div class="media-body">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    Contact: germain dot vallverdu at univ-pau.fr
-                </div>
-                <div class="media-right">
-                    <a href="http://www.univ-pau.fr"><img class="media-object" src="{% static 'img/logoUPPA.png' %}" height="64px" alt="UPPA" /></a>
-                    <!-- <a href="http://iprem.univ-pau.fr"><img class="media-object" src="{% static 'img/logoIPREM.png' %}" height="100px" alt="IPREM" /></a> -->
-                </div>
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="http://www.univ-pau.fr"><img src="{% static 'img/logoUPPA.png' %}" height="64px" alt="UPPA" /></a>
+                <a href="http://iprem.univ-pau.fr"><img src="{% static 'img/logoIPREM.png' %}" height="64px" alt="IPREM" /></a>
             </div>
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+            Contact: germain dot vallverdu at univ-pau.fr
         </div>
     </footer>
   </body>

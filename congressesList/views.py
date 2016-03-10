@@ -51,4 +51,10 @@ def edit_congress(request, congress_id):
             return redirect('congressesList.views.congresses_list')
     else:
         form = CongressForm(instance=congress)
-    return render(request, 'congressesList/new_congress.html', {'form': form})
+    return render(request, 'congressesList/new.html', {'form': form})
+
+
+def delete_congress(request, congress_id):
+    congress = get_object_or_404(Congress, pk=congress_id)
+    congress.delete()
+    return render(request, 'congressesList/delete.html')
