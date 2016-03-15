@@ -36,7 +36,7 @@ def new_congress(request):
             return redirect("congressesList.views.congresses_list")
     else:
         form = CongressForm()
-    return render(request, "congressesList/new_congress.html", {"form": form})
+    return render(request, "congressesList/new.html", {"form": form})
 
 
 def edit_congress(request, congress_id):
